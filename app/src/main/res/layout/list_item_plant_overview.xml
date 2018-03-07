@@ -9,7 +9,7 @@
     android:paddingBottom="@dimen/margin_regular">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewPlant"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginLeft="16dp"
@@ -21,25 +21,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
         tools:text="Lily"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPlant" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewLatinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         tools:text="Lilium"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPlant"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPlant" />
 
 </android.support.constraint.ConstraintLayout>
