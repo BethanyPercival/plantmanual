@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/plantmanual-master.iml" filepath="$PROJECT_DIR$/plantmanual-master.iml" />
+      <module fileurl="file://C:\Users\beth_\StudioProjects\plantmanual\app\app.iml" filepath="C:\Users\beth_\StudioProjects\plantmanual\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plantmanual.iml" filepath="$PROJECT_DIR$/plantmanual.iml" />
+      <module fileurl="file://C:\Users\beth_\StudioProjects\plantmanual\plantmanual-master.iml" filepath="C:\Users\beth_\StudioProjects\plantmanual\plantmanual-master.iml" />
     </modules>
   </component>
 </project>

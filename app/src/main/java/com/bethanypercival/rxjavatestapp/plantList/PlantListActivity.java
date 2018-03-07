@@ -19,9 +19,13 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
     }
 
     private void initialiseActivity() {
-
+        setUpRecyclerView();
         presenter = new PlantListPresenter(this, new PlantListData());
         presenter.onViewReady();
+    }
+
+    private void setUpRecyclerView() {
+
     }
 
     //prepare viewpager

@@ -1,5 +1,9 @@
 package com.bethanypercival.rxjavatestapp.plantList;
 
+import com.bethanypercival.rxjavatestapp.model.Plant;
+
+import java.util.List;
+
 /**
  * Created by bethanypercival on 07/03/2018.
  */
@@ -16,15 +20,11 @@ public class PlantListPresenter implements IPlantListPresenter {
 
     @Override
     public void onViewReady() {
-
+        data.getAllPlants(this);
     }
 
     @Override
-    public void onDataReady() {
+    public void onDataReady(List<Plant> plants) {
 
     }
-
-    //onViewReady - get data
-
-    //onDataReady - give data
 }
