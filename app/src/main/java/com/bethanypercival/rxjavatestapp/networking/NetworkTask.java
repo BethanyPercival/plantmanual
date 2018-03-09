@@ -1,6 +1,6 @@
 package com.bethanypercival.rxjavatestapp.networking;
 
-import com.bethanypercival.rxjavatestapp.model.Plant;
+import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 
 import java.util.List;
 
@@ -13,6 +13,6 @@ import retrofit2.http.GET;
 
 interface NetworkTask {
 
-    @GET("plants/all")
-    Single<List<Plant>> getAllPlants();
+    @GET("?search=all")
+    Single<List<PlantOverview>> getAllPlants();
 }

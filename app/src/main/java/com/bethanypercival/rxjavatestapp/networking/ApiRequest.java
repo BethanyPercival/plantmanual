@@ -1,6 +1,7 @@
 package com.bethanypercival.rxjavatestapp.networking;
 
-import com.bethanypercival.rxjavatestapp.model.Plant;
+import com.bethanypercival.rxjavatestapp.model.PlantOverview;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.List;
 
@@ -14,16 +15,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiRequest {
 
-    Retrofit retrofit;
-
-    private void sendRequest() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.mygarden.org/")
+    Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://tropicalfruitandveg.com/api/tfvjsonapi.php/")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-    }
 
-    public Single<List<Plant>> getAllPlants() {
+    public Single<List<PlantOverview>> getAllPlants() {
         NetworkTask networkTask = retrofit.create(NetworkTask.class);
         return networkTask.getAllPlants();
     }

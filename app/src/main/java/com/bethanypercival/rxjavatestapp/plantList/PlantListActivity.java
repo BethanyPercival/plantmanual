@@ -2,12 +2,21 @@ package com.bethanypercival.rxjavatestapp.plantList;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.bethanypercival.rxjavatestapp.R;
+import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PlantListActivity extends AppCompatActivity implements IPlantListView {
+
+    @BindView(R.id.recyclerViewAllPlants)
+    RecyclerView recyclerViewAllPlants;
 
     private IPlantListPresenter presenter;
     @Override
@@ -25,12 +34,12 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
     }
 
     private void setUpRecyclerView() {
-
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerViewAllPlants.setLayoutManager(layoutManager);
     }
 
-    //prepare viewpager
-
-    //prepare recyclerview
-
-    //give data to recyclerview
+    @Override
+    public void populateRecyclerView(List<PlantOverview> plantOverviewList) {
+        recyclerViewAllPlants.setAdapter(new PlantListRecyclerAdapter(plantOverviewList));
+    }
 }
