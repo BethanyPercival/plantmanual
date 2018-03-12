@@ -21,7 +21,7 @@ public class ApiRequest {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-    public Single<List<PlantOverview>> getAllPlants() {
+    public Single<GetAllPlantsResponse> getAllPlants() {
         NetworkTask networkTask = retrofit.create(NetworkTask.class);
         return networkTask.getAllPlants();
     }

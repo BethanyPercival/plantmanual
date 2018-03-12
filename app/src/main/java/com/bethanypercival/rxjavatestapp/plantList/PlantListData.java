@@ -2,6 +2,7 @@ package com.bethanypercival.rxjavatestapp.plantList;
 
 import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 import com.bethanypercival.rxjavatestapp.networking.ApiRequest;
+import com.bethanypercival.rxjavatestapp.networking.GetAllPlantsResponse;
 
 import java.util.List;
 
@@ -23,10 +24,10 @@ public class PlantListData {
     public void getAllPlants(final IPlantListPresenter presenter) {
         apiRequest.getAllPlants()
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Consumer<List<PlantOverview>>() {
+                .subscribe(new Consumer<GetAllPlantsResponse>() {
                     @Override
-                    public void accept(List<PlantOverview> plantOverviews) throws Exception {
-                        presenter.onDataReady(plantOverviews);
+                    public void accept(GetAllPlantsResponse plantOverviewList) throws Exception {
+                        presenter.onDataReady(plantOverviewList);
                     }
                 });
 

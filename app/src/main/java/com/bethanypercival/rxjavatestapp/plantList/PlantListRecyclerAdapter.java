@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bethanypercival.rxjavatestapp.R;
 import com.bethanypercival.rxjavatestapp.model.PlantOverview;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,10 +35,14 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
         PlantOverview plantOverview = plantOverviewList.get(position);
         holder.setName(plantOverview.getName());
         holder.setBotanicalName(plantOverview.getBotanicalName());
+        holder.setImageViewPlant(plantOverview.getImageUrl());
     }
 
     @Override
     public int getItemCount() {
+        if(plantOverviewList != null) {
+            return plantOverviewList.size();
+        }
         return 0;
     }
 
@@ -56,8 +61,8 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
         @BindView(R.id.textViewLatinName)
         TextView botanicalName;
 
-        public void setImageViewPlant(ImageView imageViewPlant) {
-            this.imageViewPlant = imageViewPlant;
+        public void setImageViewPlant(String imageURL) {
+            Picasso.get().load(imageURL).into(imageViewPlant);
         }
 
         public void setName(String name) {

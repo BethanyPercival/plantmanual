@@ -15,10 +15,12 @@ import butterknife.ButterKnife;
 
 public class PlantListActivity extends AppCompatActivity implements IPlantListView {
 
+    private IPlantListPresenter presenter;
+    private PlantListRecyclerAdapter adapter;
+    private List<PlantOverview> plantOverviewList;
+
     @BindView(R.id.recyclerViewAllPlants)
     RecyclerView recyclerViewAllPlants;
-
-    private IPlantListPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,21 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
     }
 
     private void setUpRecyclerView() {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        adapter = new PlantListRecyclerAdapter(plantOverviewList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewAllPlants.setLayoutManager(layoutManager);
+        recyclerViewAllPlants.setAdapter(adapter);
     }
 
     @Override
-    public void populateRecyclerView(List<PlantOverview> plantOverviewList) {
-        recyclerViewAllPlants.setAdapter(new PlantListRecyclerAdapter(plantOverviewList));
+    public void populateRecyclerView(final List<PlantOverview> plantOverviewList) {
+        this.plantOverviewList = plantOverviewList;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                recyclerViewAllPlants.setAdapter(new PlantListRecyclerAdapter(plantOverviewList));
+            }
+        });
     }
 }

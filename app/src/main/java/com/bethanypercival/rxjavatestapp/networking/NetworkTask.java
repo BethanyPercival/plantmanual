@@ -14,5 +14,5 @@ import retrofit2.http.GET;
 interface NetworkTask {
 
     @GET("?search=all")
-    Single<List<PlantOverview>> getAllPlants();
+    Single<GetAllPlantsResponse> getAllPlants();
 }
