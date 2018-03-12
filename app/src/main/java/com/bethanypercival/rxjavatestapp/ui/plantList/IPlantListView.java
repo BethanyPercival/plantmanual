@@ -1,4 +1,4 @@
-package com.bethanypercival.rxjavatestapp.plantList;
+package com.bethanypercival.rxjavatestapp.ui.plantList;
 
 import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 
@@ -11,4 +11,6 @@ import java.util.List;
 public interface IPlantListView {
 
     void populateRecyclerView(List<PlantOverview> plantOverviewList);
+
+    void openPlantDetails(String name);
 }

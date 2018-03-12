@@ -1,4 +1,4 @@
-package com.bethanypercival.rxjavatestapp.plantList;
+package com.bethanypercival.rxjavatestapp.ui.plantList;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by beth_ on 07/03/2018.
@@ -23,6 +24,12 @@ import butterknife.ButterKnife;
 public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecyclerAdapter.PlantListViewHolder> {
 
     private List<PlantOverview> plantOverviewList;
+    private IPlantListPresenter presenter;
+
+    public PlantListRecyclerAdapter(List<PlantOverview> plantOverviewList, IPlantListPresenter presenter) {
+        this.plantOverviewList = plantOverviewList;
+        this.presenter = presenter;
+    }
 
     @Override
     public PlantListRecyclerAdapter.PlantListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -46,10 +53,6 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
         return 0;
     }
 
-    public PlantListRecyclerAdapter(List<PlantOverview> plantOverviewList) {
-        this.plantOverviewList = plantOverviewList;
-    }
-
     public class PlantListViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.imageViewPlant)
@@ -61,6 +64,17 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
         @BindView(R.id.textViewLatinName)
         TextView botanicalName;
 
+        public PlantListViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    presenter.onListItemClicked(getName());
+                }
+            });
+        }
+
         public void setImageViewPlant(String imageURL) {
             Picasso.get().load(imageURL).into(imageViewPlant);
         }
@@ -69,13 +83,12 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
             this.name.setText(name);
         }
 
-        public void setBotanicalName(String botanicalName) {
-            this.botanicalName.setText(botanicalName);
+        public String getName() {
+            return name.getText().toString();
         }
 
-        public PlantListViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
+        public void setBotanicalName(String botanicalName) {
+            this.botanicalName.setText(botanicalName);
         }
     }
 }

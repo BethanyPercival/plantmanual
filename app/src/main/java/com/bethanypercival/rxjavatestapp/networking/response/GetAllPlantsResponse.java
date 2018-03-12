@@ -1,4 +1,4 @@
-package com.bethanypercival.rxjavatestapp.networking;
+package com.bethanypercival.rxjavatestapp.networking.response;
 
 import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 

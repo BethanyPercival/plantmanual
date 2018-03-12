@@ -1,9 +1,6 @@
-package com.bethanypercival.rxjavatestapp.plantList;
+package com.bethanypercival.rxjavatestapp.ui.plantList;
 
-import com.bethanypercival.rxjavatestapp.model.PlantOverview;
-import com.bethanypercival.rxjavatestapp.networking.GetAllPlantsResponse;
-
-import java.util.List;
+import com.bethanypercival.rxjavatestapp.networking.response.GetAllPlantsResponse;
 
 /**
  * Created by bethanypercival on 07/03/2018.
@@ -27,5 +24,12 @@ public class PlantListPresenter implements IPlantListPresenter {
     @Override
     public void onDataReady(GetAllPlantsResponse plantOverviews) {
         view.populateRecyclerView(plantOverviews.getResults());
+    }
+
+    @Override
+    public void onListItemClicked(String name) {
+        if(name != null) {
+            view.openPlantDetails(name);
+        }
     }
 }

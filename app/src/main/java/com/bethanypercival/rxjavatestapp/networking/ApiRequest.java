@@ -1,9 +1,8 @@
 package com.bethanypercival.rxjavatestapp.networking;
 
-import com.bethanypercival.rxjavatestapp.model.PlantOverview;
+import com.bethanypercival.rxjavatestapp.networking.response.GetAllPlantsResponse;
+import com.bethanypercival.rxjavatestapp.networking.response.GetPlantDetailsResponse;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
-import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.Retrofit;
@@ -24,5 +23,10 @@ public class ApiRequest {
     public Single<GetAllPlantsResponse> getAllPlants() {
         NetworkTask networkTask = retrofit.create(NetworkTask.class);
         return networkTask.getAllPlants();
+    }
+
+    public Single<GetPlantDetailsResponse> getPlantDetails(String name) {
+        NetworkTask networkTask = retrofit.create(NetworkTask.class);
+        return networkTask.getPlantDetails(name);
     }
 }

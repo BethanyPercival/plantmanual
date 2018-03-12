@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bethanypercival.rxjavatestapp.plantList.PlantListActivity">
+    tools:context="com.bethanypercival.rxjavatestapp.ui.plantList.PlantListActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewAllPlants"

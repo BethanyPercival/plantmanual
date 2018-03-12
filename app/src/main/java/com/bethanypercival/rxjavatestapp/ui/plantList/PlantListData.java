@@ -1,10 +1,7 @@
-package com.bethanypercival.rxjavatestapp.plantList;
+package com.bethanypercival.rxjavatestapp.ui.plantList;
 
-import com.bethanypercival.rxjavatestapp.model.PlantOverview;
 import com.bethanypercival.rxjavatestapp.networking.ApiRequest;
-import com.bethanypercival.rxjavatestapp.networking.GetAllPlantsResponse;
-
-import java.util.List;
+import com.bethanypercival.rxjavatestapp.networking.response.GetAllPlantsResponse;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
