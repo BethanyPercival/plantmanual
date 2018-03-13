@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimaryDark">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cardViewPlantOverview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_regular"
+        android:layout_margin="32dp"
         android:background="@android:color/white">
 
         <RelativeLayout
@@ -24,34 +26,45 @@
                 android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewPlant"
                 android:layout_margin="@dimen/margin_regular"
-                tools:text="Banana"
                 android:textSize="24sp"
-                android:layout_below="@+id/imageViewPlant"/>
+                tools:text="Banana" />
 
             <TextView
                 android:id="@+id/textViewBotanicalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Musa acuminata, M. Paradisiaca, M. Basjoo"
+                android:layout_below="@id/textViewName"
                 android:layout_marginLeft="@dimen/margin_regular"
                 android:layout_marginStart="@dimen/margin_regular"
-                android:layout_below="@id/textViewName"/>
+                tools:text="Musa acuminata, M. Paradisiaca, M. Basjoo" />
 
             <TextView
                 android:id="@+id/textViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/dummy_description_text"
                 android:layout_below="@id/textViewBotanicalName"
                 android:layout_margin="@dimen/margin_regular"
+                android:ellipsize="end"
                 android:maxLines="8"
-                android:ellipsize="end"/>
+                tools:text="@string/dummy_description_text" />
 
 
         </RelativeLayout>
 
 
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textViewNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_regular"
+        android:text="Next"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewPlantOverview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
