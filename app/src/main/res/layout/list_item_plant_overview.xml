@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
-    android:paddingBottom="@dimen/margin_regular">
+    android:background="@android:color/white">
 
     <ImageView
         android:id="@+id/imageViewPlant"
@@ -14,20 +13,22 @@
         android:layout_height="70dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:paddingBottom="@dimen/margin_regular"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
         android:src="@drawable/ic_nature_black_24px"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="An image of the fruit or vegetable" />
 
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/margin_regular"
+        android:layout_marginLeft="@dimen/margin_regular"
         tools:text="Lily"
+        android:textSize="20sp"
+        android:textColor="@color/colorHeader"
         app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
         app:layout_constraintTop_toTopOf="@+id/imageViewPlant" />
 
@@ -35,11 +36,16 @@
         android:id="@+id/textViewLatinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="@dimen/margin_small"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         tools:text="Lilium"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewPlant"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"
         app:layout_constraintStart_toEndOf="@+id/imageViewPlant" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e9edeb"/>
 
 </android.support.constraint.ConstraintLayout>

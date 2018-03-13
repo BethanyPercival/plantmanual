@@ -28,7 +28,7 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plant_list);
+        setContentView(R.layout.fragment_plant_list);
         ButterKnife.bind(this);
         initialiseActivity();
     }
