@@ -1,11 +1,16 @@
 package com.bethanypercival.plantmanual.ui.plantList;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 
 import com.bethanypercival.plantmanual.R;
 import com.bethanypercival.plantmanual.model.PlantOverview;
@@ -15,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PlantListActivity extends AppCompatActivity implements IPlantListView {
 
@@ -38,27 +44,13 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
         initialiseActivity();
     }
 
-    private void initialiseActivity() {
-        setUpRecyclerView();
-        presenter = new PlantListPresenter(this, new PlantListData());
-        presenter.onViewReady();
-    }
-
-    private void setUpRecyclerView() {
-        adapter = new PlantListRecyclerAdapter(plantOverviewList, presenter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewAllPlants.setLayoutManager(layoutManager);
-        recyclerViewAllPlants.setAdapter(adapter);
-    }
-
     @Override
     public void populateRecyclerView(final List<PlantOverview> plantOverviewList) {
         this.plantOverviewList = plantOverviewList;
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                recyclerViewAllPlants.setAdapter(new PlantListRecyclerAdapter(plantOverviewList, presenter));
+                recyclerViewAllPlants.setAdapter(new PlantListRecyclerAdapter(plantOverviewList, presenter, getBaseContext()));
             }
         });
     }
@@ -68,5 +60,19 @@ public class PlantListActivity extends AppCompatActivity implements IPlantListVi
         Intent intent = new Intent(this, PlantDetailedActivity.class);
         intent.putExtra(EXTRA_NAME, name);
         startActivity(intent);
+    }
+
+    private void initialiseActivity() {
+        setUpRecyclerView();
+        presenter = new PlantListPresenter(this, new PlantListData());
+        presenter.onViewReady();
+    }
+
+    private void setUpRecyclerView() {
+        adapter = new PlantListRecyclerAdapter(plantOverviewList, presenter, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewAllPlants.setLayoutManager(layoutManager);
+        recyclerViewAllPlants.setAdapter(adapter);
     }
 }

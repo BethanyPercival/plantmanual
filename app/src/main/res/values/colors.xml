@@ -10,4 +10,6 @@
     <color name="secondaryTextColor">#000000</color>
 
     <color name="colorHeader">#484B4C</color>
+    <color name="greyInactive">#A3A8A3</color>
+    <color name="redFavourite">#FF0000</color>
 </resources>
