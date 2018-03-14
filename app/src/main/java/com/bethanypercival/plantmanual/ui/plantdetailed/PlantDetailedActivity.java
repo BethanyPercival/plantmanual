@@ -1,5 +1,6 @@
 package com.bethanypercival.plantmanual.ui.plantdetailed;
 
+import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -59,9 +60,22 @@ public class PlantDetailedActivity extends AppCompatActivity implements IPlantDe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detailed);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setupActionBar();
         initialisePresenter();
         presenter.onViewReady(getIntent().getStringExtra(EXTRA_NAME));
+    }
+
+    private void setupActionBar() {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
