@@ -1,4 +1,4 @@
-package com.bethanypercival.plantmanual.ui.main.plantList;
+package com.bethanypercival.plantmanual.ui.plantList;
 
 import com.bethanypercival.plantmanual.networking.response.GetAllPlantsResponse;
 

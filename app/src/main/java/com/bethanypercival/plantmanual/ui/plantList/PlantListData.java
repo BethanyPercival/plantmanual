@@ -1,8 +1,8 @@
-package com.bethanypercival.plantmanual.ui.main;
+package com.bethanypercival.plantmanual.ui.plantList;
 
 import com.bethanypercival.plantmanual.networking.ApiRequest;
 import com.bethanypercival.plantmanual.networking.response.GetAllPlantsResponse;
-import com.bethanypercival.plantmanual.ui.main.plantList.IPlantListPresenter;
+import com.bethanypercival.plantmanual.ui.plantList.IPlantListPresenter;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;

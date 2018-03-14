@@ -1,4 +1,4 @@
-package com.bethanypercival.plantmanual.ui.main.plantList;
+package com.bethanypercival.plantmanual.ui.plantList;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

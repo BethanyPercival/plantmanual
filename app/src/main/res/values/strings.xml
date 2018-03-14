@@ -8,4 +8,6 @@
     <string name="dummy_health_text">All parts of the banana plant have medicinal applications: the flowers in bronchitis and dysentery and on ulcers; cooked flowers are given to diabetics; the astringent plant sap in cases of hysteria, epilepsy, leprosy, fevers, hemorrhages, acute dysentery and diarrhea, and it is applied on hemorrhoids, insect and other stings and bites; young leaves are placed as poultices on burns and other skin afflictions; the astringent ashes of the unripe peel and of the leaves are taken in dysentery and diarrhea and used for treating malignant ulcers; the roots are administered in digestive disorders, dysentery and other ailments; banana seed mucilage is given in cases of catarrh and diarrhea in India.</string>
     <string name="item_all_plants">All Plants</string>
     <string name="item_random_plant">Random Plant</string>
+    <string name="item_read_more">Read More</string>
+    <string name="item_read_less">Read Less</string>
 </resources>

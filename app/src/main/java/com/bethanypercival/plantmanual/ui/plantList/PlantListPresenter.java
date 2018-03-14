@@ -1,7 +1,6 @@
-package com.bethanypercival.plantmanual.ui.main.plantList;
+package com.bethanypercival.plantmanual.ui.plantList;
 
 import com.bethanypercival.plantmanual.networking.response.GetAllPlantsResponse;
-import com.bethanypercival.plantmanual.ui.main.PlantListData;
 
 /**
  * Created by bethanypercival on 07/03/2018.

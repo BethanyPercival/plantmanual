@@ -1,85 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none">
 
-    <ScrollView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+        </android.support.design.widget.AppBarLayout>
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayoutParent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/card_margin"
             android:paddingBottom="@dimen/margin_regular"
-            android:paddingTop="@dimen/margin_regular">
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardViewImageNameAndBotanicalName"
+            <LinearLayout
+                android:id="@+id/linearLayoutImagePlant"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin">
+                android:layout_height="wrap_content">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/imageViewPlant"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+            </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textViewName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_regular"
-                            android:layout_marginStart="@dimen/margin_regular"
-                            android:layout_marginTop="@dimen/margin_regular"
-                            android:textAlignment="inherit"
-                            android:textColor="@android:color/black"
-                            android:textSize="30sp"
-                            tools:text="Banana" />
-
-                        <TextView
-                            android:id="@+id/textViewBotanicalName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_regular"
-                            android:layout_marginStart="@dimen/margin_regular"
-                            android:layout_marginTop="@dimen/margin_small"
-
-                            tools:text="Musa acuminata, M. Paradisiaca, M. Basjoo" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imageViewPlant"
-                            android:layout_width="180dp"
-                            android:layout_height="120dp"
-                            android:layout_margin="@dimen/margin_regular" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardViewPlantDetails"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin"
-                app:layout_constraintTop_toBottomOf="@id/cardViewImageNameAndBotanicalName">
+                android:layout_marginLeft="@dimen/margin_regular"
+                android:layout_marginStart="@dimen/margin_regular"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayoutImagePlant"
+                tools:text="Banana" />
+
+            <TextView
+                android:id="@+id/textViewBotanicalName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_regular"
+                android:layout_marginStart="@dimen/margin_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewName"
+                tools:text="Musa acuminata, M. Paradisiaca, M. Basjoo" />
 
             <TextView
                 android:id="@+id/textViewAlsoKnownAsHeader"
@@ -91,7 +84,8 @@
                 android:textColor="@color/colorHeader"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/cardViewImageNameAndBotanicalName"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewBotanicalName" />
 
             <TextView
                 android:id="@+id/textViewAlsoKnownAs"
@@ -102,9 +96,8 @@
                 android:layout_marginLeft="@dimen/margin_regular"
                 android:layout_marginRight="@dimen/margin_regular"
                 android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="Plantain, Kela, Pl�tano, Banane, Cambur, Feige"
-                app:layout_constraintTop_toBottomOf="@id/textViewAlsoKnownAsHeader" />
+                app:layout_constraintTop_toBottomOf="@id/textViewAlsoKnownAsHeader"
+                tools:text="Plantain, Kela, Pl�tano, Banane, Cambur, Feige" />
 
 
             <TextView
@@ -118,157 +111,182 @@
                 android:textColor="@color/colorHeader"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewAlsoKnownAs" />
 
             <TextView
                 android:id="@+id/textViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
                 android:layout_marginEnd="@dimen/margin_regular"
                 android:layout_marginLeft="@dimen/margin_regular"
                 android:layout_marginRight="@dimen/margin_regular"
                 android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="@string/dummy_description_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionHeader" />
+                android:ellipsize="end"
+                android:maxLines="5"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionHeader"
+                tools:text="@string/dummy_description_text" />
 
-
-            <TextView
-                android:id="@+id/textViewUsesHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_regular"
-                android:text="Uses"
-                android:textColor="@color/colorHeader"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
-
-            <TextView
-                android:id="@+id/textViewUses"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayoutReadMore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
-                android:layout_marginEnd="@dimen/margin_regular"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginRight="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="@string/dummy_uses_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewUsesHeader" />
+                app:layout_constraintTop_toBottomOf="@id/constraintLayoutDetails">
 
-            <TextView
-                android:id="@+id/textViewPropagationHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_regular"
-                android:text="Propagation"
-                android:textColor="@color/colorHeader"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/textViewUses" />
+                <TextView
+                    android:id="@+id/textViewReadMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_regular"
+                    android:text="@string/item_read_more"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/textViewPropagation"
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayoutDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
-                android:layout_marginEnd="@dimen/margin_regular"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginRight="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="@string/dummy_propagation_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewPropagationHeader" />
-
-            <TextView
-                android:id="@+id/textViewSoilHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_regular"
-                android:text="Soil"
-                android:textColor="@color/colorHeader"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/textViewPropagation" />
-
-            <TextView
-                android:id="@+id/textViewSoil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
-                android:layout_marginEnd="@dimen/margin_regular"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginRight="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="@string/dummy_soil_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewSoilHeader" />
-
-            <TextView
-                android:id="@+id/textViewClimateHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_regular"
-                android:text="Climate"
-                android:textColor="@color/colorHeader"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/textViewSoil" />
-
-            <TextView
-                android:id="@+id/textViewClimate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
-                android:layout_marginEnd="@dimen/margin_regular"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginRight="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="@string/dummy_climate_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewClimateHeader" />
-
-            <TextView
-                android:id="@+id/textViewHealthHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_regular"
-                android:text="Health"
-                android:textColor="@color/colorHeader"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/textViewClimate" />
-
-            <TextView
-                android:id="@+id/textViewHealth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_regular"
-                android:layout_marginEnd="@dimen/margin_regular"
-                android:layout_marginLeft="@dimen/margin_regular"
-                android:layout_marginRight="@dimen/margin_regular"
-                android:layout_marginStart="@dimen/margin_regular"
-                android:layout_marginTop="@dimen/margin_small"
                 android:paddingBottom="@dimen/margin_regular"
-                tools:text="@string/dummy_health_text"
-                app:layout_constraintTop_toBottomOf="@id/textViewHealthHeader" />
+                app:layout_constraintTop_toBottomOf="@id/textViewDescription">
 
-            </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textViewUsesHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    android:layout_marginTop="@dimen/margin_regular"
+                    android:text="Uses"
+                    android:textColor="@color/colorHeader"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewUses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_regular"
+                    android:layout_marginEnd="@dimen/margin_regular"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginRight="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUsesHeader"
+                    tools:text="@string/dummy_uses_text" />
+
+                <TextView
+                    android:id="@+id/textViewPropagationHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    android:layout_marginTop="@dimen/margin_regular"
+                    android:text="Propagation"
+                    android:textColor="@color/colorHeader"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUses" />
+
+                <TextView
+                    android:id="@+id/textViewPropagation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_regular"
+                    android:layout_marginEnd="@dimen/margin_regular"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginRight="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    app:layout_constraintTop_toBottomOf="@id/textViewPropagationHeader"
+                    tools:text="@string/dummy_propagation_text" />
+
+                <TextView
+                    android:id="@+id/textViewSoilHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    android:layout_marginTop="@dimen/margin_regular"
+                    android:text="Soil"
+                    android:textColor="@color/colorHeader"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewPropagation" />
+
+                <TextView
+                    android:id="@+id/textViewSoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_regular"
+                    android:layout_marginEnd="@dimen/margin_regular"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginRight="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    app:layout_constraintTop_toBottomOf="@id/textViewSoilHeader"
+                    tools:text="@string/dummy_soil_text" />
+
+                <TextView
+                    android:id="@+id/textViewClimateHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    android:layout_marginTop="@dimen/margin_regular"
+                    android:text="Climate"
+                    android:textColor="@color/colorHeader"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewSoil" />
+
+                <TextView
+                    android:id="@+id/textViewClimate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_regular"
+                    android:layout_marginEnd="@dimen/margin_regular"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginRight="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    app:layout_constraintTop_toBottomOf="@id/textViewClimateHeader"
+                    tools:text="@string/dummy_climate_text" />
+
+                <TextView
+                    android:id="@+id/textViewHealthHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    android:layout_marginTop="@dimen/margin_regular"
+                    android:text="Health"
+                    android:textColor="@color/colorHeader"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewClimate" />
+
+                <TextView
+                    android:id="@+id/textViewHealth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_regular"
+                    android:layout_marginLeft="@dimen/margin_regular"
+                    android:layout_marginRight="@dimen/margin_regular"
+                    android:layout_marginStart="@dimen/margin_regular"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewHealthHeader"
+                    tools:text="@string/dummy_health_text" />
+
+            </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
 
-    </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
 
-</android.support.constraint.ConstraintLayout>

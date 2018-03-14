@@ -8,4 +8,8 @@ import com.bethanypercival.plantmanual.model.PlantDetailed;
 
 public interface IPlantDetailedView {
     void populateFields(PlantDetailed details);
+
+    void showMoreDetails();
+
+    void hideMoreDetails();
 }

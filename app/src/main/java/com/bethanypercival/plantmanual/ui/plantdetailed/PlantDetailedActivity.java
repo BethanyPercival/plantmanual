@@ -2,7 +2,10 @@ package com.bethanypercival.plantmanual.ui.plantdetailed;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,8 +15,9 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-import static com.bethanypercival.plantmanual.ui.main.plantList.PlantListFragment.EXTRA_NAME;
+import static com.bethanypercival.plantmanual.ui.plantList.PlantListActivity.EXTRA_NAME;
 
 /**
  * Created by bethanypercival on 12/03/2018.
@@ -43,12 +47,19 @@ public class PlantDetailedActivity extends AppCompatActivity implements IPlantDe
     TextView textViewClimate;
     @BindView(R.id.textViewHealth)
     TextView textViewHealth;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.textViewReadMore)
+    TextView textViewReadMore;
+    @BindView(R.id.constraintLayoutDetails)
+    ConstraintLayout constraintLayoutDetails;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_detailed);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         initialisePresenter();
         presenter.onViewReady(getIntent().getStringExtra(EXTRA_NAME));
     }
@@ -70,6 +81,23 @@ public class PlantDetailedActivity extends AppCompatActivity implements IPlantDe
                 textViewHealth.setText(details.getHealth());
             }
         });
+    }
+
+    @Override
+    public void showMoreDetails() {
+        constraintLayoutDetails.setVisibility(View.VISIBLE);
+        textViewReadMore.setText(getString(R.string.item_read_less));
+    }
+
+    @Override
+    public void hideMoreDetails() {
+        constraintLayoutDetails.setVisibility(View.GONE);
+        textViewReadMore.setText(getString(R.string.item_read_more));
+    }
+
+    @OnClick(R.id.constraintLayoutReadMore)
+    public void readMoreClicked() {
+        presenter.readMoreClicked(textViewReadMore.getText().toString(), this);
     }
 
     private void initialisePresenter() {

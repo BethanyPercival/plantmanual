@@ -1,5 +1,8 @@
 package com.bethanypercival.plantmanual.ui.plantdetailed;
 
+import android.content.Context;
+
+import com.bethanypercival.plantmanual.R;
 import com.bethanypercival.plantmanual.networking.response.GetPlantDetailsResponse;
 
 /**
@@ -24,5 +27,14 @@ public class PlantDetailedPresenter implements IPlantDetailedPresenter {
     @Override
     public void onDataReady(GetPlantDetailsResponse getPlantDetailsResponse) {
         view.populateFields(getPlantDetailsResponse.getPlantDetailedList().get(0));
+    }
+
+    @Override
+    public void readMoreClicked(String readMoreText, Context context) {
+        if(readMoreText.equals(context.getString(R.string.item_read_more))) {
+            view.showMoreDetails();
+        } else {
+            view.hideMoreDetails();
+        }
     }
 }
