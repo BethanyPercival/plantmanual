@@ -39,40 +39,41 @@ public class PlantDetailedPresenterTest {
     @Mock
     private Context context;
 
-    private PlantDetailedPresenter presenter;
+    private PlantDetailedPresenter mockPresenter;
 
     @Before
     public void testSetup() {
-        presenter = new PlantDetailedPresenter(mockView, mockData);
+        mockPresenter = new PlantDetailedPresenter(mockView, mockData);
     }
 
     @Test
     public void shouldCallGetPlantDetails_whenOnViewReadyIsCalled() {
-        presenter.onViewReady(NAME);
+        mockPresenter.onViewReady(NAME);
 
-        verify(mockData).getPlantDetails(NAME, presenter);
+        verify(mockData).getPlantDetails(NAME, mockPresenter);
     }
 
     @Test
     public void shouldCallPopulateFields_whenOnDataReadyIsCalled() {
         List<PlantDetailed> list = new ArrayList<>();
         list.add(plantDetailed);
-
         when(mockGetPlantDetailsResponse.getPlantDetailedList()).thenReturn(list);
-        presenter.onDataReady(mockGetPlantDetailsResponse);
+
+        mockPresenter.onDataReady(mockGetPlantDetailsResponse);
+
         verify(mockView).populateFields(plantDetailed);
     }
 
     @Test
     public void shouldCallShowMoreDetails_whenReadMore() {
-        presenter.readMoreClicked(READ_MORE, context);
+        mockPresenter.readMoreClicked(READ_MORE, context);
 
         verify(mockView).showMoreDetails();
     }
 
     @Test
     public void shouldCallHideMoreDetails_whenReadLess() {
-        presenter.readMoreClicked(READ_LESS, context);
+        mockPresenter.readMoreClicked(READ_LESS, context);
 
         verify(mockView).hideMoreDetails();
     }
