@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,49 +13,50 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="@dimen/margin_small"
+        android:contentDescription="An image of the fruit or vegetable"
         android:paddingBottom="@dimen/margin_small"
         android:src="@drawable/ic_nature_black_24px"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="An image of the fruit or vegetable" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginStart="@dimen/margin_regular"
         android:layout_marginLeft="@dimen/margin_regular"
-        tools:text="Lily"
-        android:textSize="20sp"
+        android:layout_marginStart="@dimen/margin_regular"
+        android:layout_marginTop="@dimen/margin_small"
         android:textColor="@color/colorHeader"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
-        app:layout_constraintTop_toTopOf="@+id/imageViewPlant" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewPlant"
+        tools:text="Lily" />
 
     <TextView
         android:id="@+id/textViewLatinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        tools:text="Lilium"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
         app:layout_constraintTop_toBottomOf="@+id/textViewName"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPlant" />
+        tools:text="Lilium" />
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imageViewFavourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_regular"
-        android:layout_marginRight="@dimen/margin_regular"
         android:layout_marginEnd="@dimen/margin_regular"
+        android:layout_marginRight="@dimen/margin_regular"
+        android:layout_marginTop="@dimen/margin_regular"
         android:src="@drawable/ic_favorite_empty"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:tint="@color/greyInactive"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#e9edeb"/>
+        android:background="#e9edeb" />
 
 </android.support.constraint.ConstraintLayout>

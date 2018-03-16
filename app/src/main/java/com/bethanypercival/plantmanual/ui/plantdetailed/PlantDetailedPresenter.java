@@ -31,7 +31,7 @@ public class PlantDetailedPresenter implements IPlantDetailedPresenter {
 
     @Override
     public void readMoreClicked(String readMoreText, Context context) {
-        if(readMoreText.equals(context.getString(R.string.item_read_more))) {
+        if(readMoreText.equals("Read More")) {
             view.showMoreDetails();
         } else {
             view.hideMoreDetails();

@@ -32,9 +32,7 @@
             android:id="@+id/constraintLayoutParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_regular"
             android:background="@android:color/white"
-            android:paddingBottom="@dimen/margin_regular"
             app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
             <LinearLayout
@@ -139,7 +137,7 @@
                     android:id="@+id/textViewReadMore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_regular"
+                    android:layout_margin="@dimen/margin_regular"
                     android:text="@string/item_read_more"
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
@@ -156,6 +154,12 @@
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/textViewDescription">
 
+                <View
+                    android:id="@+id/dividerUses"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_small"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
 
                 <TextView
                     android:id="@+id/textViewUsesHeader"
@@ -169,7 +173,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/dividerUses" />
 
                 <TextView
                     android:id="@+id/textViewUses"
@@ -182,6 +186,12 @@
                     android:layout_marginStart="@dimen/margin_regular"
                     app:layout_constraintTop_toBottomOf="@id/textViewUsesHeader"
                     tools:text="@string/dummy_uses_text" />
+
+                <View
+                    android:id="@+id/dividerPropagation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_small"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUses"/>
 
                 <TextView
                     android:id="@+id/textViewPropagationHeader"
@@ -208,6 +218,12 @@
                     android:layout_marginStart="@dimen/margin_regular"
                     app:layout_constraintTop_toBottomOf="@id/textViewPropagationHeader"
                     tools:text="@string/dummy_propagation_text" />
+
+                <View
+                    android:id="@+id/dividerSoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_small"
+                    app:layout_constraintTop_toBottomOf="@id/textViewPropagation"/>
 
                 <TextView
                     android:id="@+id/textViewSoilHeader"

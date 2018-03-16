@@ -121,7 +121,7 @@ public class PlantListRecyclerAdapter extends RecyclerView.Adapter<PlantListRecy
             });
 
             colorAnim.setDuration(1500);
-            colorAnim.setRepeatCount(2);
+            colorAnim.setRepeatCount(1);
             colorAnim.start();
         }
 
